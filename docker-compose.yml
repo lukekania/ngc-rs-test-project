@@ -1,0 +1,18 @@
+services:
+  ngc-rs:
+    build:
+      context: ../..
+      dockerfile: test/test-ng-project/Dockerfile
+    image: ngc-rs-test
+    container_name: ngc-rs-test
+    ports:
+      - "8080:8080"
+
+  ng:
+    build:
+      context: ../..
+      dockerfile: test/test-ng-project/Dockerfile.ng
+    image: ng-test
+    container_name: ng-test
+    ports:
+      - "8081:8080"

@@ -1,0 +1,43 @@
+@use 'sass:color';
+
+$accent: #ff5722;
+$radius: 6px;
+
+@mixin chip($bg, $fg: #fff) {
+  display: inline-block;
+  background: $bg;
+  color: $fg;
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius;
+  font-weight: 600;
+}
+
+.scss-card {
+  border: 2px solid $accent;
+  padding: 1rem;
+  border-radius: $radius * 2;
+
+  .title {
+    color: color.adjust($accent, $lightness: -10%);
+    margin: 0 0 0.5rem 0;
+
+    &::after {
+      content: ' (SCSS nested + &::after)';
+      color: #888;
+      font-weight: normal;
+    }
+  }
+
+  .chips {
+    display: flex;
+    gap: 0.5rem;
+
+    .chip {
+      @include chip($accent);
+
+      &.alt {
+        @include chip(#3f51b5, #fff);
+      }
+    }
+  }
+}
