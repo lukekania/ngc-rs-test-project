@@ -21,6 +21,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'hostDirectives', path: '/host-directives', issue: 57, blurb: 'compose directives onto a host' },
       { label: '@HostBinding / @HostListener', path: '/host-bindings', issue: 58, blurb: 'attr/style/class targets, listeners' },
       { label: 'SVG & MathML namespaces', path: '/svg', issue: 60, blurb: 'inline SVG and foreignObject' },
+      { label: 'DI, Pipes, Directives, Projection', path: '/di', blurb: 'tokens, custom pipes/directives, ng-content slots' },
     ],
   },
   {
@@ -30,17 +31,30 @@ const GROUPS: FeatureGroup[] = [
     ],
   },
   {
-    label: 'i18n & Styling',
+    label: 'Routing',
     items: [
-      { label: 'i18n, ICU, $localize', path: '/i18n', issue: 62, blurb: 'i18n attrs, plural/select, runtime $localize' },
-      { label: 'SCSS component styles', path: '/scss', issue: 61, blurb: 'styleUrl + inline SCSS preprocessing' },
-      { label: 'Animation triggers', path: '/animations', issue: 59, blurb: '[@trigger], state, :enter / :leave' },
+      { label: 'Routing patterns', path: '/routing-patterns', blurb: 'guards, resolver, child routes, input binding' },
+    ],
+  },
+  {
+    label: 'Forms',
+    items: [
+      { label: 'Forms', path: '/forms', blurb: 'reactive + template-driven, sync & async validators' },
     ],
   },
   {
     label: 'HTTP & Async',
     items: [
+      { label: 'HttpClient & interceptors', path: '/http', blurb: 'auth, logging, error interceptors' },
       { label: 'Web worker', path: '/web-worker', issue: 66, blurb: 'off-thread work via new Worker(new URL(...))' },
+    ],
+  },
+  {
+    label: 'i18n & Styling',
+    items: [
+      { label: 'i18n, ICU, $localize', path: '/i18n', issue: 62, blurb: 'i18n attrs, plural/select, runtime $localize' },
+      { label: 'SCSS component styles', path: '/scss', issue: 61, blurb: 'styleUrl + inline SCSS preprocessing' },
+      { label: 'Animation triggers', path: '/animations', issue: 59, blurb: '[@trigger], state, :enter / :leave' },
     ],
   },
   {
