@@ -1,33 +1,161 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+interface FeatureLink {
+  label: string;
+  path: string;
+  blurb: string;
+  issue?: number;
+}
+
+interface FeatureGroup {
+  label: string;
+  items: FeatureLink[];
+}
+
+const GROUPS: FeatureGroup[] = [
+  {
+    label: 'Components & Templates',
+    items: [
+      { label: '@defer blocks', path: '/defer', issue: 56, blurb: 'every defer trigger + sub-blocks' },
+      { label: 'hostDirectives', path: '/host-directives', issue: 57, blurb: 'compose directives onto a host' },
+      { label: '@HostBinding / @HostListener', path: '/host-bindings', issue: 58, blurb: 'attr/style/class targets, listeners' },
+      { label: 'SVG & MathML namespaces', path: '/svg', issue: 60, blurb: 'inline SVG and foreignObject' },
+    ],
+  },
+  {
+    label: 'Reactivity',
+    items: [
+      { label: 'Signal APIs', path: '/signals', issue: 55, blurb: 'inputs, outputs, models, queries' },
+    ],
+  },
+  {
+    label: 'i18n & Styling',
+    items: [
+      { label: 'i18n, ICU, $localize', path: '/i18n', issue: 62, blurb: 'i18n attrs, plural/select, runtime $localize' },
+      { label: 'SCSS component styles', path: '/scss', issue: 61, blurb: 'styleUrl + inline SCSS preprocessing' },
+      { label: 'Animation triggers', path: '/animations', issue: 59, blurb: '[@trigger], state, :enter / :leave' },
+    ],
+  },
+  {
+    label: 'HTTP & Async',
+    items: [
+      { label: 'Web worker', path: '/web-worker', issue: 66, blurb: 'off-thread work via new Worker(new URL(...))' },
+    ],
+  },
+  {
+    label: 'Build & Platform',
+    items: [
+      { label: 'package.json imports', path: '/package-imports', issue: 63, blurb: '#subpath imports field' },
+      { label: 'Exports conditions', path: '/exports-conditions', issue: 64, blurb: 'browser/import/production resolution' },
+      { label: 'Service worker', path: '/service-worker', issue: 65, blurb: 'ngsw-config.json + SwUpdate' },
+      { label: 'index.html options', path: '/index-html-options', issue: 67, blurb: 'baseHref / deployUrl / SRI / crossOrigin' },
+    ],
+  },
+];
+
 @Component({
   selector: 'app-home',
   imports: [RouterLink],
   template: `
-    <h1>ngc-rs Angular 21 test bed</h1>
-    <p>One route per open v0.7.x issue. Build with <code>ng build</code> and again
-       with <code>ngc-rs build</code>, then diff or run both <code>dist/</code>s in a browser.</p>
-    <ol class="grid">
-      <li><a routerLink="/signals">#55 signal APIs</a></li>
-      <li><a routerLink="/defer">#56 &#64;defer</a></li>
-      <li><a routerLink="/host-directives">#57 hostDirectives</a></li>
-      <li><a routerLink="/host-bindings">#58 &#64;HostListener / &#64;HostBinding</a></li>
-      <li><a routerLink="/animations">#59 animation trigger syntax</a></li>
-      <li><a routerLink="/svg">#60 SVG / MathML namespace</a></li>
-      <li><a routerLink="/scss">#61 SCSS component styles</a></li>
-      <li><a routerLink="/i18n">#62 i18n / ICU / $localize</a></li>
-      <li><a routerLink="/package-imports">#63 package.json imports (#subpath)</a></li>
-      <li><a routerLink="/exports-conditions">#64 exports conditional resolution</a></li>
-      <li><a routerLink="/service-worker">#65 service worker</a></li>
-      <li><a routerLink="/web-worker">#66 web worker</a></li>
-      <li><a routerLink="/index-html-options">#67 baseHref / deployUrl / crossOrigin / SRI</a></li>
-    </ol>
+    <section class="hero">
+      <h1>Angular feature reference</h1>
+      <p class="lede">
+        Working examples of Angular's web-app capabilities. Each page is a small, isolated demo —
+        also used as a validation surface for
+        <a href="https://github.com/angular/angular" target="_blank" rel="noopener">ngc-rs</a>,
+        a Rust-based Angular compiler.
+      </p>
+    </section>
+
+    @for (group of groups; track group.label) {
+      <section class="group">
+        <h2>{{ group.label }}</h2>
+        <ul class="grid">
+          @for (item of group.items; track item.path) {
+            <li>
+              <a [routerLink]="item.path">
+                <span class="label">{{ item.label }}</span>
+                <span class="blurb">{{ item.blurb }}</span>
+                @if (item.issue !== undefined) {
+                  <span class="issue">ngc-rs #{{ item.issue }}</span>
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      </section>
+    }
   `,
-  styles: [`
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:.5rem; padding-left:1rem; }
-    a { text-decoration:none; padding:.5rem; background:#eceff1; border-radius:4px; display:block; }
-    a:hover { background:#cfd8dc; }
-  `],
+  styles: [
+    `
+      :host {
+        display: block;
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .hero {
+        margin-bottom: 2rem;
+      }
+      .hero h1 {
+        margin: 0 0 0.5rem;
+      }
+      .hero .lede {
+        color: #455a64;
+        margin: 0;
+      }
+      .group {
+        margin-bottom: 1.75rem;
+      }
+      .group h2 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #607d8b;
+        border-bottom: 1px solid #cfd8dc;
+        padding-bottom: 0.25rem;
+        margin: 0 0 0.75rem;
+      }
+      .grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.5rem;
+      }
+      a {
+        display: block;
+        padding: 0.75rem;
+        background: #eceff1;
+        border-radius: 6px;
+        text-decoration: none;
+        color: inherit;
+      }
+      a:hover {
+        background: #cfd8dc;
+      }
+      .label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.15rem;
+      }
+      .blurb {
+        display: block;
+        font-size: 0.85rem;
+        color: #455a64;
+      }
+      .issue {
+        display: inline-block;
+        margin-top: 0.35rem;
+        font-size: 0.7rem;
+        color: #78909c;
+        font-variant-numeric: tabular-nums;
+      }
+    `,
+  ],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  protected readonly groups = GROUPS;
+}
