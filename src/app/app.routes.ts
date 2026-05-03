@@ -75,5 +75,10 @@ export const routes: Routes = [
         (m) => m.DiPipesDirectivesComponent,
       ),
   },
+  {
+    path: 'forms',
+    loadComponent: () =>
+      import('./features/forms/forms.component').then((m) => m.FormsDemoComponent),
+  },
   { path: '**', redirectTo: '' },
 ];
