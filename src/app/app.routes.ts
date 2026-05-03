@@ -68,5 +68,12 @@ export const routes: Routes = [
         (m) => m.IndexHtmlOptionsComponent,
       ),
   },
+  {
+    path: 'di',
+    loadComponent: () =>
+      import('./features/di-pipes-directives/di-pipes-directives.component').then(
+        (m) => m.DiPipesDirectivesComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
