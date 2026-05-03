@@ -1,12 +1,25 @@
 import { Component, signal } from '@angular/core';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-svg-namespace',
+  imports: [FeaturePageComponent],
   template: `
-    <h2>#60 SVG / MathML namespace handling</h2>
-    <p>If the SVG chart renders with visible shapes, the SVG namespace push/pop is correct. If it's blank, elements are being created in the HTML namespace.</p>
+    <app-feature-page
+      title="SVG & MathML namespaces"
+      groupLabel="Components & Templates"
+      description="Inline SVG with @for, foreignObject namespace reset, and MathML rendering."
+      [issue]="60"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          If the SVG chart renders with visible shapes, the SVG namespace push/pop is correct. If
+          it's blank, elements are being created in the HTML namespace.
+          <code>&lt;foreignObject&gt;</code> demonstrates returning to the HTML namespace inside SVG.
+        </p>
+      </ng-container>
 
-    <svg viewBox="0 0 200 80" width="300" height="120" xmlns="http://www.w3.org/2000/svg" style="border:1px solid #888;">
+      <svg viewBox="0 0 200 80" width="300" height="120" xmlns="http://www.w3.org/2000/svg" style="border:1px solid #888;">
       <defs>
         <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stop-color="#42a5f5" />
@@ -28,16 +41,17 @@ import { Component, signal } from '@angular/core';
       </foreignObject>
     </svg>
 
-    <h3>MathML</h3>
-    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-      <mrow>
-        <msup><mi>a</mi><mn>2</mn></msup>
-        <mo>+</mo>
-        <msup><mi>b</mi><mn>2</mn></msup>
-        <mo>=</mo>
-        <msup><mi>c</mi><mn>2</mn></msup>
-      </mrow>
-    </math>
+      <h3>MathML</h3>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <msup><mi>a</mi><mn>2</mn></msup>
+          <mo>+</mo>
+          <msup><mi>b</mi><mn>2</mn></msup>
+          <mo>=</mo>
+          <msup><mi>c</mi><mn>2</mn></msup>
+        </mrow>
+      </math>
+    </app-feature-page>
   `,
 })
 export class SvgNamespaceComponent {

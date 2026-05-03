@@ -1,7 +1,9 @@
 import { Component, computed, signal } from '@angular/core';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-i18n',
+  imports: [FeaturePageComponent],
   templateUrl: './i18n.component.html',
 })
 export class I18nComponent {

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-scss-styles',
+  imports: [FeaturePageComponent],
   styleUrl: './scss-styles.component.scss',
   styles: [`
     @use 'sass:color';
@@ -20,26 +22,34 @@ import { Component } from '@angular/core';
     }
   `],
   template: `
-    <h2>#61 SCSS / Less / Stylus component style preprocessing</h2>
-    <p>
-      Verifies: (a) component <code>styleUrl: ./*.scss</code> preprocessed;
-      (b) inline <code>styles: [\`...\`]</code> preprocessed because
-      <code>inlineStyleLanguage: scss</code> is set in angular.json;
-      (c) SCSS features — <code>$variables</code>, nested selectors, <code>@mixin</code>,
-      <code>darken()</code>, <code>&::after</code>.
-    </p>
+    <app-feature-page
+      title="SCSS component styles"
+      groupLabel="i18n & Styling"
+      description="External .scss styleUrl plus SCSS-preprocessed inline styles via inlineStyleLanguage."
+      [issue]="61"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          Verifies (a) component <code>styleUrl: ./*.scss</code> is preprocessed;
+          (b) inline <code>styles: [\`...\`]</code> is preprocessed because
+          <code>inlineStyleLanguage: scss</code> is set in angular.json;
+          (c) SCSS features work — <code>$variables</code>, nested selectors,
+          <code>color.adjust()</code>.
+        </p>
+      </ng-container>
 
-    <div class="scss-card">
-      <h3 class="title">Preprocessed external .scss</h3>
-      <div class="chips">
-        <span class="chip">accent</span>
-        <span class="chip alt">alt</span>
+      <div class="scss-card">
+        <h3 class="title">Preprocessed external .scss</h3>
+        <div class="chips">
+          <span class="chip">accent</span>
+          <span class="chip alt">alt</span>
+        </div>
       </div>
-    </div>
 
-    <div class="scss-inline">
-      <strong>Preprocessed inline styles</strong> via <code>inlineStyleLanguage: scss</code>.
-    </div>
+      <div class="scss-inline">
+        <strong>Preprocessed inline styles</strong> via <code>inlineStyleLanguage: scss</code>.
+      </div>
+    </app-feature-page>
   `,
 })
 export class ScssStylesComponent {}

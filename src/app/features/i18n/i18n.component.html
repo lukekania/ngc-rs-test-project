@@ -1,37 +1,51 @@
-<h2>#62 i18n — i18n attrs, ICU, $localize</h2>
+<app-feature-page
+  title="i18n, ICU and $localize"
+  groupLabel="i18n & Styling"
+  description="i18n attributes, ICU plural/select expressions, and the $localize tagged template."
+  [issue]="62"
+>
+  <ng-container ngProjectAs="[notes]">
+    <p>
+      Demonstrates the <code>i18n</code> attribute with meaning|description|@@id metadata,
+      <code>i18n-alt</code> for translating non-content attributes, ICU
+      <code>plural</code> and <code>select</code> blocks, and the runtime
+      <code>$localize</code> tagged template literal.
+    </p>
+  </ng-container>
 
-<p i18n="site header|The main greeting shown on the home page@@home.greeting">
-  Welcome to the test project.
-</p>
+  <p i18n="site header|The main greeting shown on the home page@@home.greeting">
+    Welcome to the test project.
+  </p>
 
-<img
-  src="/favicon.ico"
-  i18n-alt="Alternative text for the logo@@logo.alt"
-  alt="Project logo"
-  width="32"
-  height="32"
-/>
+  <img
+    src="/favicon.ico"
+    i18n-alt="Alternative text for the logo@@logo.alt"
+    alt="Project logo"
+    width="32"
+    height="32"
+  />
 
-<h3 i18n="@@cart.title">Your cart</h3>
-<button (click)="inc()">+1 item</button>
-<button (click)="dec()">-1 item</button>
-<button (click)="cycleStatus()">cycle status</button>
+  <h3 i18n="@@cart.title">Your cart</h3>
+  <button (click)="inc()">+1 item</button>
+  <button (click)="dec()">-1 item</button>
+  <button (click)="cycleStatus()">cycle status</button>
 
-<p i18n="@@cart.items">
-  You have {count(), plural,
-    =0 {no items}
-    =1 {one item}
-    other {# items}
-  } in your cart.
-</p>
+  <p i18n="@@cart.items">
+    You have {count(), plural,
+      =0 {no items}
+      =1 {one item}
+      other {# items}
+    } in your cart.
+  </p>
 
-<p i18n="@@order.status">
-  Status: {status(), select,
-    pending {Pending shipment}
-    shipped {Shipped}
-    delivered {Delivered}
-    other {Unknown}
-  }
-</p>
+  <p i18n="@@order.status">
+    Status: {status(), select,
+      pending {Pending shipment}
+      shipped {Shipped}
+      delivered {Delivered}
+      other {Unknown}
+    }
+  </p>
 
-<p>From $localize tagged template: <em>{{ greeting() }}</em></p>
+  <p>From $localize tagged template: <em>{{ greeting() }}</em></p>
+</app-feature-page>
