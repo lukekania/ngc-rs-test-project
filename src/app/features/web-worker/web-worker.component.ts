@@ -1,21 +1,30 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-web-worker',
-  imports: [FormsModule],
+  imports: [FormsModule, FeaturePageComponent],
   template: `
-    <h2>#66 Web worker bundling (new Worker + new URL + import.meta.url)</h2>
-    <p>
-      <code>new Worker(new URL('./hash.worker', import.meta.url), &#123; type: 'module' &#125;)</code>
-      — the bundler must treat the worker as a separate entrypoint and rewrite the URL to
-      the emitted chunk filename.
-    </p>
+    <app-feature-page
+      title="Web worker"
+      groupLabel="HTTP & Async"
+      description="Off-thread work via new Worker(new URL(..., import.meta.url))."
+      [issue]="66"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          The bundler must treat the worker module as a separate entrypoint and rewrite
+          <code>new URL('./hash.worker', import.meta.url)</code> to the emitted chunk filename.
+          The worker hashes the input string and posts the result back.
+        </p>
+      </ng-container>
 
-    <label>input: <input [(ngModel)]="input" /></label>
-    <button (click)="send()" [disabled]="!supported()">hash via worker</button>
-    <p>worker supported: {{ supported() ? 'yes' : 'no' }}</p>
-    <p>last hash: <code>{{ result() || '—' }}</code></p>
+      <label>input: <input [(ngModel)]="input" /></label>
+      <button (click)="send()" [disabled]="!supported()">hash via worker</button>
+      <p>worker supported: {{ supported() ? 'yes' : 'no' }}</p>
+      <p>last hash: <code>{{ result() || '—' }}</code></p>
+    </app-feature-page>
   `,
 })
 export class WebWorkerComponent {

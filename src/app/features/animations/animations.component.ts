@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-animations',
+  imports: [FeaturePageComponent],
   animations: [
     trigger('fade', [
       state('shown', style({ opacity: 1, transform: 'translateX(0)' })),
@@ -18,29 +20,39 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
   template: `
-    <h2>#59 Animation trigger template syntax</h2>
-    <p>Exercises <code>[@fade]="state"</code> property binding,
-       <code>(@fade.start)</code> and <code>(@fade.done)</code> listeners,
-       and the <code>:enter</code> / <code>:leave</code> structural trigger.</p>
-
-    <button (click)="toggle()">toggle</button>
-
-    <div
-      class="box"
-      [@fade]="state()"
-      (@fade.start)="onEvt('fade', 'start', $event)"
-      (@fade.done)="onEvt('fade', 'done', $event)"
+    <app-feature-page
+      title="Animation triggers"
+      groupLabel="i18n & Styling"
+      description="[@fade] property binding, animation event callbacks, :enter / :leave structural triggers."
+      [issue]="59"
     >
-      I fade via [@fade] property binding. state = {{ state() }}
-    </div>
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          Uses <code>[@fade]="state"</code> property binding, <code>(@fade.start)</code> and
+          <code>(@fade.done)</code> listeners, plus the structural <code>:enter</code> /
+          <code>:leave</code> transitions on a conditional <code>[@slide]</code> block.
+        </p>
+      </ng-container>
 
-    @if (state() === 'shown') {
-      <div class="box slide" [@slide]>
-        I use :enter / :leave via the [@slide] trigger.
+      <button (click)="toggle()">toggle</button>
+
+      <div
+        class="box"
+        [@fade]="state()"
+        (@fade.start)="onEvt('fade', 'start', $event)"
+        (@fade.done)="onEvt('fade', 'done', $event)"
+      >
+        I fade via [@fade] property binding. state = {{ state() }}
       </div>
-    }
 
-    <pre class="log">{{ log() }}</pre>
+      @if (state() === 'shown') {
+        <div class="box slide" [@slide]>
+          I use :enter / :leave via the [@slide] trigger.
+        </div>
+      }
+
+      <pre class="log">{{ log() }}</pre>
+    </app-feature-page>
   `,
   styles: [`
     .box { padding:.75rem; margin:.5rem 0; background:#ffe0b2; border:1px solid #ef6c00; }

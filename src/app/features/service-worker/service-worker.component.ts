@@ -1,27 +1,34 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SwUpdate } from '@angular/service-worker';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-service-worker',
+  imports: [FeaturePageComponent],
   template: `
-    <h2>#65 Angular service worker — ngsw-config.json &rarr; ngsw.json</h2>
-    <p><code>angular.json</code> has <code>"serviceWorker": "ngsw-config.json"</code>.
-       A production build should emit <code>dist/.../ngsw.json</code> with hashed assets
-       and copy <code>ngsw-worker.js</code> next to the app.</p>
-    <p>After <code>ng build</code>:</p>
-    <ul>
-      <li><code>ls dist/test-ng-project/browser/ngsw.json ngsw-worker.js</code> — both must exist</li>
-      <li>Every file path in <code>assetGroups</code> appears in <code>ngsw.json.hashTable</code></li>
-    </ul>
+    <app-feature-page
+      title="Service worker"
+      groupLabel="Build & Platform"
+      description="ngsw-config.json compiled to ngsw.json and consumed via SwUpdate at runtime."
+      [issue]="65"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          <code>angular.json</code> has <code>"serviceWorker": "ngsw-config.json"</code>. A production
+          build emits <code>dist/.../ngsw.json</code> with hashed assets and copies
+          <code>ngsw-worker.js</code> next to the app. <code>SwUpdate</code> is injected here for
+          version-update notifications.
+        </p>
+      </ng-container>
 
-    <p>At runtime, <code>SwUpdate</code> is injected here:</p>
-    <ul>
-      <li>isEnabled: <code>{{ isEnabled }}</code></li>
-      <li>version events received: <code>{{ events() }}</code></li>
-    </ul>
+      <ul>
+        <li>isEnabled: <code>{{ isEnabled }}</code></li>
+        <li>version events received: <code>{{ events() }}</code></li>
+      </ul>
 
-    <button (click)="check()" [disabled]="!isEnabled">check for update</button>
+      <button (click)="check()" [disabled]="!isEnabled">check for update</button>
+    </app-feature-page>
   `,
 })
 export class ServiceWorkerComponent {

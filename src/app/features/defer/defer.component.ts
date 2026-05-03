@@ -1,11 +1,25 @@
 import { Component, signal } from '@angular/core';
 import { HeavyComponent } from './heavy.component';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-defer',
-  imports: [HeavyComponent],
+  imports: [HeavyComponent, FeaturePageComponent],
   template: `
-    <h2>#56 &#64;defer blocks — every trigger + sub-blocks</h2>
+    <app-feature-page
+      title="@defer blocks"
+      groupLabel="Components & Templates"
+      description="Every @defer trigger variant with @placeholder / @loading / @error blocks."
+      [issue]="56"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          Demonstrates <code>on idle</code>, <code>on viewport</code>, <code>on hover</code>,
+          <code>on interaction</code>, <code>on timer</code>, <code>on immediate</code>,
+          <code>when &lt;expr&gt;</code>, and <code>prefetch on idle</code>. Each defer block lazy-loads
+          its content as a separate chunk.
+        </p>
+      </ng-container>
 
     <section>
       <h3>on idle (default) with &#64;placeholder / &#64;loading / &#64;error</h3>
@@ -82,6 +96,7 @@ import { HeavyComponent } from './heavy.component';
         <button #prefetchClick>click (already prefetched)</button>
       }
     </section>
+    </app-feature-page>
   `,
   styles: [`
     section { margin: 1.5rem 0; padding: 1rem; border:1px solid #ddd; border-radius:4px; }

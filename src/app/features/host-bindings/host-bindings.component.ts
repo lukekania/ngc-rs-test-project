@@ -1,19 +1,30 @@
 import { Component, HostBinding, HostListener, signal } from '@angular/core';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-host-bindings',
+  imports: [FeaturePageComponent],
   template: `
-    <h2>#58 &#64;HostListener / &#64;HostBinding extraction</h2>
-    <p>Target forms exercised on host: bare property, <code>attr.*</code>, <code>style.*</code>, <code>style.*.px</code>, <code>class.*</code>.</p>
-    <p>Click anywhere in this component to bump count.</p>
-    <p>Resize the window — <code>width</code> host attribute updates.</p>
-    <p>Press <kbd>a</kbd> to toggle the <code>.is-active</code> class.</p>
+    <app-feature-page
+      title="@HostBinding & @HostListener"
+      groupLabel="Components & Templates"
+      description="Bare property, attr.*, style.*, style.*.px and class.* host bindings; click/keydown/window:resize listeners."
+      [issue]="58"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          Click anywhere on this page to bump count. Resize the window —
+          <code>data-width</code> host attribute updates. Press <kbd>a</kbd> to toggle the
+          <code>.is-active</code> class on the host.
+        </p>
+      </ng-container>
 
-    <ul>
-      <li>clicks: {{ clicks() }}</li>
-      <li>last key: {{ lastKey() }}</li>
-      <li>width attr: {{ innerW() }}</li>
-    </ul>
+      <ul>
+        <li>clicks: {{ clicks() }}</li>
+        <li>last key: {{ lastKey() }}</li>
+        <li>width attr: {{ innerW() }}</li>
+      </ul>
+    </app-feature-page>
   `,
   styles: [`
     :host { display:block; padding:1rem; border:2px solid #888; outline:none; }
