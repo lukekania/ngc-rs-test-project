@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RippleDirective } from './ripple.directive';
 import { TooltipDirective } from './tooltip.directive';
+import { FeaturePageComponent } from '../../shared/feature-page/feature-page.component';
 
 @Component({
   selector: 'app-host-directives',
+  imports: [FeaturePageComponent],
   hostDirectives: [
     RippleDirective,
     {
@@ -13,15 +15,26 @@ import { TooltipDirective } from './tooltip.directive';
     },
   ],
   template: `
-    <h2>#57 hostDirectives composition</h2>
-    <p>
-      This component has <code>RippleDirective</code> (bare form) and
-      <code>TooltipDirective</code> (mapped form with input remapping) composed onto its host.
-    </p>
-    <p>Click the host (this page's root element) — a <code>.is-rippled</code> class flashes on.</p>
-    <p>Hover the host — a <code>title</code> attribute set by the tooltip directive becomes visible.</p>
+    <app-feature-page
+      title="hostDirectives composition"
+      groupLabel="Components & Templates"
+      description="Compose Ripple and Tooltip directives onto a component's host element."
+      [issue]="57"
+    >
+      <ng-container ngProjectAs="[notes]">
+        <p>
+          <code>RippleDirective</code> is applied bare; <code>TooltipDirective</code> uses the mapped
+          form with input remapping (<code>appTooltipText</code> → <code>tooltipText</code>). No
+          <code>NgModule</code> required.
+        </p>
+        <p>
+          Click anywhere on the page — a <code>.is-rippled</code> class flashes on the host element.
+          Hover the host to see the <code>title</code> attribute the tooltip directive applies.
+        </p>
+      </ng-container>
 
-    <button (click)="ripples.update((n) => n + 1)">bump counter: {{ ripples() }}</button>
+      <button (click)="ripples.update((n) => n + 1)">bump counter: {{ ripples() }}</button>
+    </app-feature-page>
   `,
   host: {
     '[attr.data-tooltip-host]': 'true',
