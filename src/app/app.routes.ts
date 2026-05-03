@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './features/routing-patterns/guards/auth.guard';
+import { featureFlagGuard } from './features/routing-patterns/guards/feature-flag.guard';
+import { detailResolver } from './features/routing-patterns/resolvers/detail.resolver';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./features/home/home.component').then((m) => m.HomeComponent) },
@@ -84,6 +87,37 @@ export const routes: Routes = [
     path: 'http',
     loadComponent: () =>
       import('./features/http-client/http-client.component').then((m) => m.HttpClientComponent),
+  },
+  {
+    path: 'routing-patterns',
+    loadComponent: () =>
+      import('./features/routing-patterns/routing-patterns.component').then(
+        (m) => m.RoutingPatternsComponent,
+      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/routing-patterns/children/list.component').then((m) => m.ListComponent),
+      },
+      {
+        path: 'detail/:id',
+        loadComponent: () =>
+          import('./features/routing-patterns/children/detail.component').then(
+            (m) => m.DetailComponent,
+          ),
+        resolve: { item: detailResolver },
+      },
+      {
+        path: 'protected',
+        canActivate: [authGuard],
+        canMatch: [featureFlagGuard('protected-route')],
+        loadComponent: () =>
+          import('./features/routing-patterns/children/protected.component').then(
+            (m) => m.ProtectedComponent,
+          ),
+      },
+    ],
   },
   { path: '**', redirectTo: '' },
 ];
