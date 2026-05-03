@@ -80,5 +80,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/forms/forms.component').then((m) => m.FormsDemoComponent),
   },
+  {
+    path: 'http',
+    loadComponent: () =>
+      import('./features/http-client/http-client.component').then((m) => m.HttpClientComponent),
+  },
   { path: '**', redirectTo: '' },
 ];
