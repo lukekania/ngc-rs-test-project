@@ -74,6 +74,12 @@ const GROUPS: FeatureGroup[] = [
       { label: 'scripts array', path: '/scripts-array', issue: 138, blurb: 'global script injection into index.html' },
     ],
   },
+  {
+    label: 'Dev server',
+    items: [
+      { label: 'servePath', path: '/serve-path', issue: 139, blurb: 'mount dev server under subpath (/admin/)' },
+    ],
+  },
 ];
 
 @Component({

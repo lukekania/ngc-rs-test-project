@@ -140,5 +140,12 @@ export const routes: Routes = [
         (m) => m.Issue138ScriptsComponent,
       ),
   },
+  {
+    path: 'serve-path',
+    loadComponent: () =>
+      import('./features/issue-139-serve-path/issue-139-serve-path.component').then(
+        (m) => m.Issue139ServePathComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
