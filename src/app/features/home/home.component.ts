@@ -77,6 +77,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'scripts array', path: '/scripts-array', issue: 138, blurb: 'global script injection into index.html' },
       { label: 'strictTemplates', path: '/strict-templates', issue: 140, blurb: 'hard-error on JIT-fallback in production' },
       { label: 'externalDependencies', path: '/external-deps', issue: 146, blurb: 'leave specified packages external (CDN / import-map)' },
+      { label: 'namedChunks', path: '/named-chunks', issue: 153, blurb: 'human-readable chunk filenames in dev' },
     ],
   },
   {

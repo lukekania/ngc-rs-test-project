@@ -238,5 +238,12 @@ export const routes: Routes = [
         (m) => m.Issue152PrebundleComponent,
       ),
   },
+  {
+    path: 'named-chunks',
+    loadComponent: () =>
+      import('./features/issue-153-named-chunks/issue-153-named-chunks.component').then(
+        (m) => m.Issue153NamedChunksComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
