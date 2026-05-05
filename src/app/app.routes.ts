@@ -259,5 +259,12 @@ export const routes: Routes = [
         (m) => m.Issue155StatsProgressVerboseComponent,
       ),
   },
+  {
+    path: 'preserve-symlinks',
+    loadComponent: () =>
+      import('./features/issue-156-preserve-symlinks/issue-156-preserve-symlinks.component').then(
+        (m) => m.Issue156PreserveSymlinksComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
