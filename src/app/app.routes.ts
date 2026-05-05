@@ -175,5 +175,12 @@ export const routes: Routes = [
         (m) => m.Issue143HeadersComponent,
       ),
   },
+  {
+    path: 'allowed-hosts',
+    loadComponent: () =>
+      import('./features/issue-144-allowed-hosts/issue-144-allowed-hosts.component').then(
+        (m) => m.Issue144AllowedHostsComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
