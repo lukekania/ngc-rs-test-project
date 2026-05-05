@@ -252,5 +252,12 @@ export const routes: Routes = [
         (m) => m.Issue154CjsDepsComponent,
       ),
   },
+  {
+    path: 'stats-json',
+    loadComponent: () =>
+      import('./features/issue-155-stats-progress-verbose/issue-155-stats-progress-verbose.component').then(
+        (m) => m.Issue155StatsProgressVerboseComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
