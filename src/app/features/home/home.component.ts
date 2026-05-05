@@ -90,6 +90,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'poll watch', path: '/poll-watch', issue: 149, blurb: 'polling fallback for NFS / Docker bind-mounts / WSL' },
       { label: 'liveReload', path: '/live-reload', issue: 150, blurb: 'toggle auto-reload SSE channel' },
       { label: 'inspect', path: '/inspect', issue: 151, blurb: 'forward --inspect to dev-server subprocesses' },
+      { label: 'prebundle', path: '/prebundle', issue: 152, blurb: 'esbuild pre-bundling cache control' },
     ],
   },
 ];
