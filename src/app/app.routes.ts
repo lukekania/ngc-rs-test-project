@@ -217,5 +217,12 @@ export const routes: Routes = [
         (m) => m.Issue149PollComponent,
       ),
   },
+  {
+    path: 'live-reload',
+    loadComponent: () =>
+      import('./features/issue-150-live-reload/issue-150-live-reload.component').then(
+        (m) => m.Issue150LiveReloadComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
