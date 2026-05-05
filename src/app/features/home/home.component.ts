@@ -66,6 +66,12 @@ const GROUPS: FeatureGroup[] = [
       { label: 'index.html options', path: '/index-html-options', issue: 67, blurb: 'baseHref / deployUrl / SRI / crossOrigin' },
     ],
   },
+  {
+    label: 'Build options',
+    items: [
+      { label: 'Vendor chunk splitting', path: '/vendor-chunks', issue: 131, blurb: 'shared chunks for npm deps referenced by ≥2 entries' },
+    ],
+  },
 ];
 
 @Component({

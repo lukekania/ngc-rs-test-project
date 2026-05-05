@@ -23,7 +23,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       @if (issue() !== null) {
         <footer class="issue-badge">
           <a
-            [href]="'https://github.com/angular/angular/issues/' + issue()"
+            [href]="'https://github.com/lukekania/ngc-rs/issues/' + issue()"
             target="_blank"
             rel="noopener"
             >ngc-rs #{{ issue() }}</a

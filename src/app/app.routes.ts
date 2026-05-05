@@ -119,5 +119,12 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'vendor-chunks',
+    loadComponent: () =>
+      import('./features/issue-131-vendor-chunks/issue-131-vendor-chunks.component').then(
+        (m) => m.Issue131VendorChunksComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
