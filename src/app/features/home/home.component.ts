@@ -72,6 +72,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'Vendor chunk splitting', path: '/vendor-chunks', issue: 131, blurb: 'shared chunks for npm deps referenced by ≥2 entries' },
       { label: 'define replacement', path: '/define', issue: 137, blurb: 'angular.json define → build-time string replacement' },
       { label: 'scripts array', path: '/scripts-array', issue: 138, blurb: 'global script injection into index.html' },
+      { label: 'strictTemplates', path: '/strict-templates', issue: 140, blurb: 'hard-error on JIT-fallback in production' },
     ],
   },
   {
