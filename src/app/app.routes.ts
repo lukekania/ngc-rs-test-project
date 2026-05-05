@@ -266,5 +266,12 @@ export const routes: Routes = [
         (m) => m.Issue156PreserveSymlinksComponent,
       ),
   },
+  {
+    path: 'extract-licenses',
+    loadComponent: () =>
+      import('./features/issue-157-extract-licenses/issue-157-extract-licenses.component').then(
+        (m) => m.Issue157ExtractLicensesComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
