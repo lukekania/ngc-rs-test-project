@@ -80,6 +80,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'namedChunks', path: '/named-chunks', issue: 153, blurb: 'human-readable chunk filenames in dev' },
       { label: 'allowedCommonJsDependencies', path: '/cjs-deps', issue: 154, blurb: 'CJS-warning suppression list' },
       { label: 'stats / progress / verbose', path: '/stats-json', issue: 155, blurb: 'observability flags (bundle analyzer, progress bar, log level)' },
+      { label: 'preserveSymlinks', path: '/preserve-symlinks', issue: 156, blurb: 'pnpm / yarn-link monorepo resolution' },
     ],
   },
   {
