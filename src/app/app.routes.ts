@@ -231,5 +231,12 @@ export const routes: Routes = [
         (m) => m.Issue151InspectComponent,
       ),
   },
+  {
+    path: 'prebundle',
+    loadComponent: () =>
+      import('./features/issue-152-prebundle/issue-152-prebundle.component').then(
+        (m) => m.Issue152PrebundleComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
