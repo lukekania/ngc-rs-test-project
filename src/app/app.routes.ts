@@ -147,5 +147,12 @@ export const routes: Routes = [
         (m) => m.Issue139ServePathComponent,
       ),
   },
+  {
+    path: 'strict-templates',
+    loadComponent: () =>
+      import('./features/issue-140-strict-templates/issue-140-strict-templates.component').then(
+        (m) => m.Issue140StrictTemplatesComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
