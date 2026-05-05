@@ -126,5 +126,12 @@ export const routes: Routes = [
         (m) => m.Issue131VendorChunksComponent,
       ),
   },
+  {
+    path: 'define',
+    loadComponent: () =>
+      import('./features/issue-137-define/issue-137-define.component').then(
+        (m) => m.Issue137DefineComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

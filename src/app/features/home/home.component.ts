@@ -70,6 +70,7 @@ const GROUPS: FeatureGroup[] = [
     label: 'Build options',
     items: [
       { label: 'Vendor chunk splitting', path: '/vendor-chunks', issue: 131, blurb: 'shared chunks for npm deps referenced by ≥2 entries' },
+      { label: 'define replacement', path: '/define', issue: 137, blurb: 'angular.json define → build-time string replacement' },
     ],
   },
 ];

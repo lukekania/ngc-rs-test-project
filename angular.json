@@ -33,7 +33,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "serviceWorker": "ngsw-config.json"
+            "serviceWorker": "ngsw-config.json",
+            "define": {
+              "__APP_API_URL__": "\"https://api.example.com\"",
+              "__BUILD_VERSION__": "\"1.0.0-ngref\""
+            }
           },
           "configurations": {
             "production": {
