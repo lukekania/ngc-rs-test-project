@@ -161,5 +161,12 @@ export const routes: Routes = [
         (m) => m.Issue141XliffV2Component,
       ),
   },
+  {
+    path: 'dev-server-ssl',
+    loadComponent: () =>
+      import('./features/issue-142-ssl/issue-142-ssl.component').then(
+        (m) => m.Issue142SslComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
