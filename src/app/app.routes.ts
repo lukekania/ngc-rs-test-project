@@ -203,5 +203,12 @@ export const routes: Routes = [
         (m) => m.Issue147LocalizeSubsetComponent,
       ),
   },
+  {
+    path: 'per-locale-ngsw',
+    loadComponent: () =>
+      import('./features/issue-148-per-locale-ngsw/issue-148-per-locale-ngsw.component').then(
+        (m) => m.Issue148PerLocaleNgswComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

@@ -57,6 +57,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'Animation triggers', path: '/animations', issue: 59, blurb: '[@trigger], state, :enter / :leave' },
       { label: 'XLIFF 2.0', path: '/xliff-v2', issue: 141, blurb: 'modern i18n format (extract + translate)' },
       { label: 'localize subset', path: '/localize-subset', issue: 147, blurb: '--localize=en,de filters declared locales' },
+      { label: 'per-locale ngsw', path: '/per-locale-ngsw', issue: 148, blurb: 'one ngsw.json per locale subdirectory' },
     ],
   },
   {
