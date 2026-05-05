@@ -79,6 +79,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'externalDependencies', path: '/external-deps', issue: 146, blurb: 'leave specified packages external (CDN / import-map)' },
       { label: 'namedChunks', path: '/named-chunks', issue: 153, blurb: 'human-readable chunk filenames in dev' },
       { label: 'allowedCommonJsDependencies', path: '/cjs-deps', issue: 154, blurb: 'CJS-warning suppression list' },
+      { label: 'stats / progress / verbose', path: '/stats-json', issue: 155, blurb: 'observability flags (bundle analyzer, progress bar, log level)' },
     ],
   },
   {
