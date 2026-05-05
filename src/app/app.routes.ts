@@ -210,5 +210,12 @@ export const routes: Routes = [
         (m) => m.Issue148PerLocaleNgswComponent,
       ),
   },
+  {
+    path: 'poll-watch',
+    loadComponent: () =>
+      import('./features/issue-149-poll/issue-149-poll.component').then(
+        (m) => m.Issue149PollComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

@@ -87,6 +87,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'Custom headers', path: '/dev-server-headers', issue: 143, blurb: 'CSP / COOP / cache-control headers in dev' },
       { label: 'allowedHosts', path: '/allowed-hosts', issue: 144, blurb: 'Host-header allowlist (ngrok, Codespaces, *.localhost)' },
       { label: 'HMR', path: '/hmr', issue: 145, blurb: 'hot-module replacement — component state survives edits' },
+      { label: 'poll watch', path: '/poll-watch', issue: 149, blurb: 'polling fallback for NFS / Docker bind-mounts / WSL' },
     ],
   },
 ];
