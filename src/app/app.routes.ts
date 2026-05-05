@@ -245,5 +245,12 @@ export const routes: Routes = [
         (m) => m.Issue153NamedChunksComponent,
       ),
   },
+  {
+    path: 'cjs-deps',
+    loadComponent: () =>
+      import('./features/issue-154-cjs-deps/issue-154-cjs-deps.component').then(
+        (m) => m.Issue154CjsDepsComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
