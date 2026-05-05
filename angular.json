@@ -33,6 +33,9 @@
             "styles": [
               "src/styles.scss"
             ],
+            "scripts": [
+              "src/global-marker.js"
+            ],
             "serviceWorker": "ngsw-config.json",
             "define": {
               "__APP_API_URL__": "\"https://api.example.com\"",

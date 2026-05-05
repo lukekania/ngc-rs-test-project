@@ -133,5 +133,12 @@ export const routes: Routes = [
         (m) => m.Issue137DefineComponent,
       ),
   },
+  {
+    path: 'scripts-array',
+    loadComponent: () =>
+      import('./features/issue-138-scripts/issue-138-scripts.component').then(
+        (m) => m.Issue138ScriptsComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
