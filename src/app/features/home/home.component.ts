@@ -80,6 +80,7 @@ const GROUPS: FeatureGroup[] = [
     label: 'Dev server',
     items: [
       { label: 'servePath', path: '/serve-path', issue: 139, blurb: 'mount dev server under subpath (/admin/)' },
+      { label: 'SSL / HTTPS', path: '/dev-server-ssl', issue: 142, blurb: 'ssl / sslKey / sslCert for HTTPS dev' },
     ],
   },
 ];
