@@ -182,5 +182,12 @@ export const routes: Routes = [
         (m) => m.Issue144AllowedHostsComponent,
       ),
   },
+  {
+    path: 'hmr',
+    loadComponent: () =>
+      import('./features/issue-145-hmr/issue-145-hmr.component').then(
+        (m) => m.Issue145HmrComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
