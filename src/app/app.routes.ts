@@ -189,5 +189,12 @@ export const routes: Routes = [
         (m) => m.Issue145HmrComponent,
       ),
   },
+  {
+    path: 'external-deps',
+    loadComponent: () =>
+      import('./features/issue-146-external-deps/issue-146-external-deps.component').then(
+        (m) => m.Issue146ExternalDepsComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
