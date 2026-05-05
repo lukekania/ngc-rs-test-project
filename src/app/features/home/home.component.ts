@@ -55,6 +55,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'i18n, ICU, $localize', path: '/i18n', issue: 62, blurb: 'i18n attrs, plural/select, runtime $localize' },
       { label: 'SCSS component styles', path: '/scss', issue: 61, blurb: 'styleUrl + inline SCSS preprocessing' },
       { label: 'Animation triggers', path: '/animations', issue: 59, blurb: '[@trigger], state, :enter / :leave' },
+      { label: 'XLIFF 2.0', path: '/xliff-v2', issue: 141, blurb: 'modern i18n format (extract + translate)' },
     ],
   },
   {

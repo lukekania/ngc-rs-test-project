@@ -154,5 +154,12 @@ export const routes: Routes = [
         (m) => m.Issue140StrictTemplatesComponent,
       ),
   },
+  {
+    path: 'xliff-v2',
+    loadComponent: () =>
+      import('./features/issue-141-xliff-v2/issue-141-xliff-v2.component').then(
+        (m) => m.Issue141XliffV2Component,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
