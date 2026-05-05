@@ -89,6 +89,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'HMR', path: '/hmr', issue: 145, blurb: 'hot-module replacement — component state survives edits' },
       { label: 'poll watch', path: '/poll-watch', issue: 149, blurb: 'polling fallback for NFS / Docker bind-mounts / WSL' },
       { label: 'liveReload', path: '/live-reload', issue: 150, blurb: 'toggle auto-reload SSE channel' },
+      { label: 'inspect', path: '/inspect', issue: 151, blurb: 'forward --inspect to dev-server subprocesses' },
     ],
   },
 ];

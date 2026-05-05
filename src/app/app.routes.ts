@@ -224,5 +224,12 @@ export const routes: Routes = [
         (m) => m.Issue150LiveReloadComponent,
       ),
   },
+  {
+    path: 'inspect',
+    loadComponent: () =>
+      import('./features/issue-151-inspect/issue-151-inspect.component').then(
+        (m) => m.Issue151InspectComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
