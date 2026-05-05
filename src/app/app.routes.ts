@@ -168,5 +168,12 @@ export const routes: Routes = [
         (m) => m.Issue142SslComponent,
       ),
   },
+  {
+    path: 'dev-server-headers',
+    loadComponent: () =>
+      import('./features/issue-143-headers/issue-143-headers.component').then(
+        (m) => m.Issue143HeadersComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

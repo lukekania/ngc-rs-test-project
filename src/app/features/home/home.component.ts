@@ -81,6 +81,7 @@ const GROUPS: FeatureGroup[] = [
     items: [
       { label: 'servePath', path: '/serve-path', issue: 139, blurb: 'mount dev server under subpath (/admin/)' },
       { label: 'SSL / HTTPS', path: '/dev-server-ssl', issue: 142, blurb: 'ssl / sslKey / sslCert for HTTPS dev' },
+      { label: 'Custom headers', path: '/dev-server-headers', issue: 143, blurb: 'CSP / COOP / cache-control headers in dev' },
     ],
   },
 ];
