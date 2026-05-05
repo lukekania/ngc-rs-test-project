@@ -196,5 +196,12 @@ export const routes: Routes = [
         (m) => m.Issue146ExternalDepsComponent,
       ),
   },
+  {
+    path: 'localize-subset',
+    loadComponent: () =>
+      import('./features/issue-147-localize-subset/issue-147-localize-subset.component').then(
+        (m) => m.Issue147LocalizeSubsetComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
