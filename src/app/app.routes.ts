@@ -273,5 +273,26 @@ export const routes: Routes = [
         (m) => m.Issue157ExtractLicensesComponent,
       ),
   },
+  {
+    path: 'if-alias',
+    loadComponent: () =>
+      import('./features/issue-166-if-alias/issue-166-if-alias.component').then(
+        (m) => m.Issue166IfAliasComponent,
+      ),
+  },
+  {
+    path: 'vendor-treeshake',
+    loadComponent: () =>
+      import('./features/issue-171-vendor-treeshake/issue-171-vendor-treeshake.component').then(
+        (m) => m.Issue171VendorTreeshakeComponent,
+      ),
+  },
+  {
+    path: 'template-listener-parity',
+    loadComponent: () =>
+      import('./features/template-listener-parity/template-listener-parity.component').then(
+        (m) => m.TemplateListenerParityComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

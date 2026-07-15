@@ -21,6 +21,7 @@ const GROUPS: FeatureGroup[] = [
       { label: 'hostDirectives', path: '/host-directives', issue: 57, blurb: 'compose directives onto a host' },
       { label: '@HostBinding / @HostListener', path: '/host-bindings', issue: 58, blurb: 'attr/style/class targets, listeners' },
       { label: 'SVG & MathML namespaces', path: '/svg', issue: 60, blurb: 'inline SVG and foreignObject' },
+      { label: '@if (expr; as alias)', path: '/if-alias', issue: 166, blurb: 'control-flow alias binds the evaluated value at runtime' },
       { label: 'DI, Pipes, Directives, Projection', path: '/di', blurb: 'tokens, custom pipes/directives, ng-content slots' },
     ],
   },
@@ -73,6 +74,7 @@ const GROUPS: FeatureGroup[] = [
     label: 'Build options',
     items: [
       { label: 'Vendor chunk splitting', path: '/vendor-chunks', issue: 131, blurb: 'shared chunks for npm deps referenced by ≥2 entries' },
+      { label: 'Per-provider vendor tree-shake', path: '/vendor-treeshake', issue: 171, blurb: 'drop unused exports inside vendor chunks (not just split)' },
       { label: 'define replacement', path: '/define', issue: 137, blurb: 'angular.json define → build-time string replacement' },
       { label: 'scripts array', path: '/scripts-array', issue: 138, blurb: 'global script injection into index.html' },
       { label: 'strictTemplates', path: '/strict-templates', issue: 140, blurb: 'hard-error on JIT-fallback in production' },
