@@ -16,9 +16,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "de": "messages.de.xlf"
+        }
+      },
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@ngc-rs/builder:application",
           "options": {
             "browser": "src/main.ts",
             "polyfills": ["@angular/localize/init"],
@@ -30,12 +36,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "src/global-marker.js"
-            ],
+            "styles": ["src/styles.scss"],
             "serviceWorker": "ngsw-config.json",
             "define": {
               "__APP_API_URL__": "\"https://api.example.com\"",
@@ -74,13 +75,19 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@ngc-rs/builder:dev-server",
+          "options": {
+            "hmr": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "test-ng-project:build:production"
             },
             "development": {
               "buildTarget": "test-ng-project:build:development"
+            },
+            "options": {
+              "servePath": "/admin/"
             }
           },
           "defaultConfiguration": "development"

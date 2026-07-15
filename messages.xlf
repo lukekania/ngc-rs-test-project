@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+  <file id="ngi18n" original="ng.template">
+    <unit id="cart.items">
+      <notes>
+        <note category="location">
+          /Users/lukaskania/Coding/Private/test/test-ng-project/src/app/features/i18n/i18n.component.ts</note>
+      </notes>
+      <segment>
+        <source>You have {count(), plural, =0 {no items} =1 {one item} other {# items} }in your
+          cart.
+        </source>
+      </segment>
+    </unit>
+    <unit id="cart.title">
+      <notes>
+        <note category="location">
+          /Users/lukaskania/Coding/Private/test/test-ng-project/src/app/features/i18n/i18n.component.ts</note>
+      </notes>
+      <segment>
+        <source>Your cart</source>
+      </segment>
+    </unit>
+    <unit id="home.greeting">
+      <notes>
+        <note category="location">
+          /Users/lukaskania/Coding/Private/test/test-ng-project/src/app/features/i18n/i18n.component.ts</note>
+        <note category="meaning">site header</note>
+        <note category="description">The main greeting shown on the home page</note>
+      </notes>
+      <segment>
+        <source>Welcome to the test project.
+        </source>
+      </segment>
+    </unit>
+    <unit id="logo.alt">
+      <notes>
+        <note category="location">
+          /Users/lukaskania/Coding/Private/test/test-ng-project/src/app/features/i18n/i18n.component.ts</note>
+        <note category="description">Alternative text for the logo</note>
+      </notes>
+      <segment>
+        <source>Project logo</source>
+      </segment>
+    </unit>
+    <unit id="order.status">
+      <notes>
+        <note category="location">
+          /Users/lukaskania/Coding/Private/test/test-ng-project/src/app/features/i18n/i18n.component.ts</note>
+      </notes>
+      <segment>
+        <source>Status: {status(), select, pending {Pending shipment} shipped {Shipped} delivered
+          {Delivered} other {Unknown} }</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>
